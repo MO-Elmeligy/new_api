@@ -34,7 +34,13 @@ flutter:
   assets:
     - assets/images/
     - assets/lottie/
+    - assets/
 
   fonts:
-    - family: flutterfonts
+    - family: YourFontName
       fonts:
+        - asset: fonts/new.ttf
+          weight: 400  # Normal weight
+        - asset: fonts/new.ttf
+          weight: 700  # Bold weight
+        
