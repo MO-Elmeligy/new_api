@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:weather_app/pages/first.dart';
+
+
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
@@ -77,7 +80,12 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        // Add navigation logic here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const FirstPage(),
+                          ),
+                        );
                       },
                       child: Text(
                         "Get Started",
@@ -102,5 +110,6 @@ class WelcomeScreen extends StatelessWidget {
       ),
     );
   }
-} 
+}
+
 
