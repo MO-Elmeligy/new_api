@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/pages/home.dart';
+import 'package:weather_app/pages/home.dart';//package:appname/folder name/page name 
 
 
 void main() {
@@ -12,9 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
+      debugShowCheckedModeBanner: false,//اخفاء علامة المبتدئين
+      home: WelcomeScreen(),//استدعاء اول صفحة
     );
   }
 }
+
+
 
