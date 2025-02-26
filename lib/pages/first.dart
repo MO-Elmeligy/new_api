@@ -31,6 +31,7 @@ Widget build(BuildContext context) {
   //////////////////
     return  Scaffold(
       appBar: AppBar(
+        
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
@@ -41,6 +42,8 @@ Widget build(BuildContext context) {
         ),
       ),
       body:_buildUI(),
+      
+      
     
     );
   }
@@ -50,9 +53,20 @@ Widget build(BuildContext context) {
       child: CircularProgressIndicator(),
     );
   }
-  return SizedBox(
+  return Container(
     width: MediaQuery.sizeOf(context).width,
     height: MediaQuery.sizeOf(context).height,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Colors.white,
+              Color.fromARGB(255, 220, 47, 255).withOpacity(0.6),
+          ],
+        ),
+      ),
+      
 child: Column(
   mainAxisSize: MainAxisSize.max,
     mainAxisAlignment:MainAxisAlignment.center,
@@ -63,7 +77,9 @@ child: Column(
       height: MediaQuery.sizeOf(context).height*0.08,
     ),
     _dateTimeInfo(),
-],),
+    _weatherIcon(),
+],
+),
   );
   }
   Widget _locationHeader(){
@@ -85,6 +101,7 @@ child: Column(
           fontWeight: FontWeight.normal,
         ),
         ),
+        
         SizedBox(
           height: 10,
         ),
@@ -100,8 +117,45 @@ child: Column(
         ),
         ),
           ],
-        )
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Text(
+          "${DateFormat("d.m.y").format(now)}",
+        style: const TextStyle(
+          fontSize: 35,
+          fontWeight: FontWeight.normal,
+        ),
+        ),
         ],
+        
+    );
+  }
+  Widget _weatherIcon(){
+    return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          height: MediaQuery.sizeOf(context).height*0.20,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+            image: NetworkImage("https://openweathermap.org/img/w/${_weather!.weatherIcon}.png"),
+            fit: BoxFit.contain,
+            scale: 0.5, // Adjust the scale to make the icon bigger
+            ),
+          ),
+          ),
+          Text(_weather?.weatherDescription??"" ,
+          
+          style: const TextStyle(
+            fontSize: 35,
+            fontWeight: FontWeight.normal,
+          ),
+          ),
+      ],
     );
   }
 }
