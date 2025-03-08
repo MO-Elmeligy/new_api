@@ -54,49 +54,94 @@ class WelcomeScreen extends StatelessWidget {
                       height: 300,
                       fit: BoxFit.contain,
                     ),
+                    
                   ),
                   SizedBox(
                     height:100,
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
+                    Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
                           Colors.white,
                           Color.fromARGB(255, 220, 47, 255).withOpacity(0.6),
                         ],
+                        ),
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent,
                         padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                      ),
-                      onPressed: () {
+                        ),
+                        onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const first_page(),
+                          builder: (context) => const first_page(),
                           ),
                         );
-                      },
-                      child: Text(
+                        },
+                        child: Text(
                         "Get Started",
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
                         ),
+                        ),
                       ),
+                      ),
+                      Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.white,
+                          Color.fromARGB(255, 220, 47, 255).withOpacity(0.6),
+                        ],
+                        ),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        ),
+                        onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                          builder: (context) => const first_page(),
+                          ),
+                        );
+                        },
+                        child: Text(
+                        "Get Started",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                        ),
+                      ),
+                      ),
+                    ],
                     ),
-                  ),
                 ],
               ),
             ),

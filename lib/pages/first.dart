@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:weather/weather.dart';
 import 'package:weather_app/consts.dart';
 class first_page extends StatefulWidget {
@@ -62,7 +63,7 @@ Widget build(BuildContext context) {
           end: Alignment.bottomCenter,
           colors: [
             Colors.white,
-              Color.fromARGB(255, 220, 47, 255).withOpacity(0.6),
+              Colors.lightBlue,
           ],
         ),
       ),
@@ -116,18 +117,22 @@ child: Column(
           fontWeight: FontWeight.normal,
         ),
         ),
+        SizedBox(
+          width: 10,
+        ),
+        Text(
+          "${DateFormat("d.m.y").format(now)}",
+        style: const TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.normal,
+        ),
+        ),
           ],
         ),
         SizedBox(
           height: 10,
         ),
-        Text(
-          "${DateFormat("d.m.y").format(now)}",
-        style: const TextStyle(
-          fontSize: 35,
-          fontWeight: FontWeight.normal,
-        ),
-        ),
+        
         ],
         
     );
@@ -140,13 +145,12 @@ child: Column(
       children: [
         Container(
           height: MediaQuery.sizeOf(context).height*0.20,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-            image: NetworkImage("https://openweathermap.org/img/w/${_weather!.weatherIcon}.png"),
-            fit: BoxFit.contain,
-            scale: 0.5, // Adjust the scale to make the icon bigger
-            ),
-          ),
+            child: Lottie.asset(
+                      "assets/lottie/snow.json",
+                      width: 300,
+                      height: 300,
+                      fit: BoxFit.contain,
+                    ),
           ),
           Text(_weather?.weatherDescription??"" ,
           
